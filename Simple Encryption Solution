@@ -1,0 +1,67 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Replace_With_alphabetical_order
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            string chekas = "This Sentence Will be Encrypted"; //Each lenter of the Sentence Will be converted to its number equivalent in Alphabetical order.
+            string ans = AlphabetPosition(chekas);
+
+            Console.WriteLine(ans);
+            Console.ReadLine();
+        }
+        public static string AlphabetPosition(string text)
+        {
+            char[] alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".ToCharArray();
+            char[] chars;
+            chars = text.ToUpper().ToCharArray();
+            text = null;
+
+            if (chars.Length <= alphabet.Length)
+            {
+                for (int a = 0; a < chars.Length; a++)
+                {
+                    for (int i = 0; i < alphabet.Length; i++)
+                    {
+                        if (alphabet[i] == chars[a])
+                        {
+                            text += i + 1 + " ";
+                        }
+                        else
+                        {
+                            continue;
+                        }
+                    }
+                }
+            }
+            else
+            {
+                for (int a = 0; a < chars.Length; a++)
+                {
+                    for (int i = 0; i < alphabet.Length; i++)
+                    {
+                        if (alphabet[i] == chars[a])
+                        {
+                            text += i + 1 + " ";
+                        }
+                        else
+                        {
+                            continue;
+                        }
+                    }
+                }
+            }
+            if (text.Substring(text.Length-1, 1) == " ")
+            {
+                text = text.Substring(0, text.Length - 1);
+            }
+            return text;
+        }
+    }
+}
